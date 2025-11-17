@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Our Mentors - Speak Smart Academy</title>
+
+    <style>
+      /* ========== Global Styles ========== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #ffffff;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #1e3a8a; /* Dark Blue */
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 3.2rem;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      /* ========== 1. Navigation Bar ========== */
+      .navbar {
+        background: #fff;
+        padding: 1.2rem 0;
+        border-bottom: 1px solid #e2e8f0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar .logo {
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: #1e3a8a;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: #475569;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .nav-links li a:hover {
+        color: #2563eb;
+      }
+
+      /* Yeh active page ko highlight karega */
+      .nav-links li a.active {
+        color: #2563eb;
+        font-weight: 700;
+      }
+
+      .nav-buttons {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-buttons .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .btn-primary {
+        background-color: #2563eb; /* Bright Blue */
+      }
+
+      .btn-primary:hover {
+        background-color: #1d4ed8;
+      }
+
+      .btn-secondary {
+        background-color: #f1f5f9; /* Light Gray */
+        color: #333;
+        border: 1px solid #cbd5e1;
+        margin-right: 0.5rem;
+      }
+
+      .btn-secondary:hover {
+        background-color: #e2e8f0;
+      }
+
+      /* ========== Page Header ========== */
+      .page-header {
+        background: #f8fafc;
+        padding: 3rem 0;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .page-header h1 {
+        font-size: 2.8rem;
+        color: #1e3a8a;
+        margin: 0;
+      }
+
+      /* ========== Mentors Section ========== */
+      .mentors-section {
+        padding: 5rem 0;
+      }
+
+      .mentor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .mentor-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .mentor-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .mentor-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: top; /* Ensures face is visible */
+      }
+
+      .mentor-card-content {
+        padding: 1.5rem;
+      }
+
+      .mentor-card-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .mentor-card-content .title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2563eb; /* Bright Blue */
+        margin-bottom: 1rem;
+      }
+
+      .mentor-card-content p {
+        font-size: 0.95rem;
+        color: #475569;
+        margin-bottom: 0;
+      }
+
+      /* ========== Footer ========== */
+      .footer {
+        background: #1e3a8a;
+        color: #e0e7ff;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .footer p {
+        margin: 0;
+        color: #e0e7ff;
+      }
+
+      /* ========== Responsive (Mobile) Design ========== */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+
+        .navbar .container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+        }
+
+        .nav-links li {
+          margin: 0.5rem 0;
+        }
+
+        .nav-buttons {
+          width: 100%;
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+        }
+        .nav-buttons .btn {
+          width: 100%;
+          margin: 0.3rem 0;
+        }
+        .nav-buttons .btn-secondary {
+          margin-right: 0; /* Remove margin for stacked buttons */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Speak Smart</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="mentors.html" class="active">Mentors</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+          <a href="#" class="btn btn-secondary">Login</a>
+          <a href="#" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="container">
+        <h1>Meet Our Mentors</h1>
+      </div>
+    </header>
+
+    <section class="mentors-section">
+      <div class="container">
+        <h2 style="text-align: left">The Experts Who Will Guide You</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 3rem; max-width: 800px">
+          Our mentors aren't just teachers; they are industry leaders, authors,
+          and coaches with decades of real-world experience at top global
+          companies.
+        </p>
+
+        <div class="mentor-grid">
+          <div class="mentor-card">
+            <img
+              src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80"
+              alt="Mentor 1"
+            />
+            <div class="mentor-card-content">
+              <h3>Mr. Vikram Singh</h3>
+              <div class="title">Ex-Google, Public Speaking Coach</div>
+              <p>Vikram has trained over 1,000 students and professionals.</p>
+            </div>
+          </div>
+
+          <div class="mentor-card">
+            <img
+              src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80"
+              alt="Mentor 3"
+            />
+            <div class="mentor-card-content">
+              <h3>Rohan Gupta</h3>
+              <div class="title">Negotiation & Sales Expert</div>
+              <p>A former Sales Director at Microsoft.</p>
+            </div>
+          </div>
+
+          <div class="mentor-card">
+            <img
+              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80"
+              alt="Mentor 4"
+            />
+            <div class="mentor-card-content">
+              <h3>Priya Kapoor</h3>
+              <div class="title">Media & PR Coach</div>
+              <p>Priya has 20 years of experience in media.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Speak Smart Academy. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

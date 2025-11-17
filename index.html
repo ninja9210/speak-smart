@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speak Smart Academy - Home</title>
+
+    <style>
+      /* ========== Global Styles ========== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #ffffff;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #1e3a8a; /* Dark Blue */
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 3.2rem;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background-color: #2563eb; /* Bright Blue */
+      }
+
+      .btn-primary:hover {
+        background-color: #1d4ed8;
+      }
+
+      .btn-secondary {
+        background-color: #f1f5f9; /* Light Gray */
+        color: #333;
+        border: 1px solid #cbd5e1;
+      }
+
+      .btn-secondary:hover {
+        background-color: #e2e8f0;
+      }
+
+      /* ========== 1. Navigation Bar ========== */
+      .navbar {
+        background: #fff;
+        padding: 1.2rem 0;
+        border-bottom: 1px solid #e2e8f0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar .logo {
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: #1e3a8a;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: #475569;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .nav-links li a:hover {
+        color: #2563eb;
+      }
+
+      .nav-buttons .btn-secondary {
+        margin-right: 0.5rem;
+      }
+
+      /* ========== 2. Hero Section ========== */
+      .hero {
+        background: linear-gradient(
+            rgba(30, 58, 138, 0.85),
+            rgba(30, 58, 138, 0.85)
+          ),
+          url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop")
+            no-repeat center center/cover;
+        color: #fff;
+        padding: 7rem 0;
+        text-align: center;
+      }
+
+      .hero h1 {
+        color: #fff;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: #e0e7ff;
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero .btn-primary {
+        background: #f97316; /* Orange */
+        margin-right: 1rem;
+      }
+
+      .hero .btn-primary:hover {
+        background: #ea580c;
+      }
+
+      .hero .btn-secondary {
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+      }
+
+      .hero .btn-secondary:hover {
+        background: #fff;
+        color: #333;
+      }
+
+      /* ========== 3. "Why Us?" Section ========== */
+      .why-us {
+        padding: 5rem 0;
+        background: #f8fafc;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-item {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .feature-item img {
+        height: 50px;
+        margin-bottom: 1rem;
+      }
+
+      /* ========== 4. "Our Flagship Courses" Section ========== */
+      .courses {
+        padding: 5rem 0;
+      }
+
+      .course-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .course-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .course-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .course-card-content {
+        padding: 1.5rem;
+      }
+
+      .course-card-content p {
+        font-size: 0.95rem;
+      }
+
+      .course-card-content .price {
+        font-size: 1.7rem;
+        font-weight: bold;
+        color: #1e3a8a;
+        margin: 0.5rem 0 1rem 0;
+      }
+
+      .course-card-content .btn {
+        width: 100%;
+        text-align: center;
+        background: #10b981; /* Green */
+      }
+
+      .course-card-content .btn:hover {
+        background: #059669;
+      }
+
+      /* ========== 5. Testimonials Section ========== */
+      .testimonials {
+        padding: 5rem 0;
+        background: #f8fafc;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background: #fff;
+        border-left: 6px solid #2563eb;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonial-card p.quote {
+        font-style: italic;
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-card p.author {
+        font-weight: bold;
+        color: #1e3a8a;
+        margin-bottom: 0;
+      }
+
+      /* ========== 6. Footer ========== */
+      .footer {
+        background: #1e3a8a;
+        color: #e0e7ff;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .footer p {
+        margin: 0;
+        color: #e0e7ff;
+      }
+
+      /* ========== Responsive (Mobile) Design ========== */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+
+        .navbar .container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+        }
+
+        .nav-links li {
+          margin: 0.5rem 0;
+        }
+
+        .nav-buttons {
+          width: 100%;
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+        }
+        .nav-buttons .btn {
+          width: 100%;
+          margin: 0.3rem 0;
+        }
+
+        .hero {
+          padding: 4rem 0;
+        }
+
+        .testimonial-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Speak Smart</a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="mentors.html">Mentors</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+          <a href="#" class="btn btn-secondary">Login</a>
+          <a href="#" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container">
+        <h1>Unlock Your Voice. Master Your Future.</h1>
+        <p>
+          India's premier platform to boost your Communication Skills, Public
+          Speaking, and Interview Confidence.
+        </p>
+        <a href="courses.html" class="btn btn-primary">View All Courses</a>
+        <a href="about.html" class="btn btn-secondary"
+          >Watch Free Intro Class</a
+        >
+      </div>
+    </header>
+
+    <section class="why-us">
+      <div class="container">
+        <h2>Why Choose Speak Smart Academy?</h2>
+        <div class="features">
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/96/teacher.png" />
+            <h3>Expert Mentors</h3>
+            <p>Learn from certified experts.</p>
+          </div>
+          <div class="feature-item">
+            <img
+              src="https://img.icons8.com/?size=100&id=vEkKPONbdEF5&format=png&color=000000"
+            />
+            <h3>Practical Learning</h3>
+            <p>Live sessions, mock interviews.</p>
+          </div>
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/96/money.png" />
+            <h3>Affordable Courses</h3>
+            <p>Budget-friendly premium quality.</p>
+          </div>
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/96/feedback.png" />
+            <h3>1-on-1 Feedback</h3>
+            <p>Personal improvement support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses">
+<div class="container">
+<h2>Explore Our Courses</h2>
+<div class="course-grid">
+
+
+<div class="course-card">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" />
+<div class="course-card-content">
+<h3>Communication Confidence</h3>
+<p>Overcome stage fear and hesitation.</p>
+<div class="price">₹1,999</div>
+</div>
+</div>
+
+
+<div class="course-card">
+<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" />
+<div class="course-card-content">
+<h3>Pro Interview & GD Cracker</h3>
+<p>Crack HR rounds with confidence.</p>
+<div class="price">₹3,499</div>
+</div>
+</div>
+
+
+<div class="course-card">
+<img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800&auto=format&fit=crop" />
+<div class="course-card-content">
+<h3>Corporate Leader's Toolkit</h3>
+<p>Learn team management & leadership.</p>
+<div class="price">₹4,999</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p class="quote">
+              "I used to be terrified of speaking in interviews. Speak Smart's
+              course gave me the confidence I needed to land my dream job. Thank
+              you!"
+            </p>
+            <p class="author">- Aman, Placed at Infosys</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="quote">
+              "I always had low confidence during my college presentations. Now
+              I can speak confidently in front of anyone. This is the best
+              course!"
+            </p>
+            <p class="author">- Priya, B.Tech Student</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Speak Smart Academy. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

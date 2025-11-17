@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Speak Smart Academy</title>
+
+    <style>
+      /* ========== Global Styles ========== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #ffffff;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: #1e3a8a; /* Dark Blue */
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 3.2rem;
+        line-height: 1.2;
+      }
+      h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+        color: #555;
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background-color: #2563eb; /* Bright Blue */
+      }
+
+      .btn-primary:hover {
+        background-color: #1d4ed8;
+      }
+
+      .btn-secondary {
+        background-color: #f1f5f9; /* Light Gray */
+        color: #333;
+        border: 1px solid #cbd5e1;
+      }
+
+      .btn-secondary:hover {
+        background-color: #e2e8f0;
+      }
+
+      /* ========== 1. Navigation Bar ========== */
+      .navbar {
+        background: #fff;
+        padding: 1.2rem 0;
+        border-bottom: 1px solid #e2e8f0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar .logo {
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: #1e3a8a;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links li a {
+        text-decoration: none;
+        color: #475569;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .nav-links li a:hover {
+        color: #2563eb;
+      }
+
+      /* Yeh active page ko highlight karega */
+      .nav-links li a.active {
+        color: #2563eb;
+        font-weight: 700;
+      }
+
+      .nav-buttons .btn-secondary {
+        margin-right: 0.5rem;
+      }
+
+      /* ========== Page Header ========== */
+      .page-header {
+        background: #f8fafc;
+        padding: 3rem 0;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .page-header h1 {
+        font-size: 2.8rem;
+        color: #1e3a8a;
+        margin: 0;
+      }
+
+      /* ========== About Content Styles ========== */
+      .about-section {
+        padding: 5rem 0;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+
+      .about-content .text {
+        flex: 1;
+      }
+
+      .about-content .image {
+        flex: 1;
+      }
+
+      .about-content .image img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Values Section (Why Us jaisa) */
+      .values {
+        padding-bottom: 5rem;
+        background: #f8fafc;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .value-item {
+        background: #fff;
+        padding: 2rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .value-item h3 {
+        font-size: 1.3rem;
+        color: #1e3a8a;
+        margin-bottom: 0.5rem;
+      }
+
+      /* ========== Footer ========== */
+      .footer {
+        background: #1e3a8a;
+        color: #e0e7ff;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .footer p {
+        margin: 0;
+        color: #e0e7ff;
+      }
+
+      /* ========== Responsive (Mobile) Design ========== */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+
+        .navbar .container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+        }
+
+        .nav-links li {
+          margin: 0.5rem 0;
+        }
+
+        .nav-buttons {
+          width: 100%;
+          margin-top: 1rem;
+          display: flex;
+          flex-direction: column;
+        }
+        .nav-buttons .btn {
+          width: 100%;
+          margin: 0.3rem 0;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">Speak Smart</a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="mentors.html">Mentors</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+          <a href="#" class="btn btn-secondary">Login</a>
+          <a href="#" class="btn btn-primary">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="container">
+        <h1>About Speak Smart Academy</h1>
+      </div>
+    </header>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="about-content">
+          <div class="text">
+            <h2>Our Story</h2>
+            <p>
+              Speak Smart Academy was founded by a team of industry veterans who
+              noticed a significant gap in the professional world: millions of
+              talented, skilled individuals were being held back simply because
+              they couldn't communicate their ideas effectively.
+            </p>
+            <p>
+              We saw brilliant engineers struggle in client meetings, innovative
+              managers fail to inspire their teams, and bright graduates freeze
+              in their first job interview. We decided to build the solution.
+            </p>
+            <p>
+              Our mission is to democratize high-quality communication training,
+              making it practical, accessible, and affordable for every Indian
+              aspiring to grow.
+            </p>
+          </div>
+          <div class="image">
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80"
+              alt="Team Meeting"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section values">
+      <div class="container">
+        <h2>Our Core Values</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <h3>Practicality First</h3>
+            <p>
+              No outdated theory. Our curriculum is 100% focused on real-world
+              scenarios, from acing interviews to delivering board-level
+              presentations.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Confidence Building</h3>
+            <p>
+              We believe communication is 20% technique and 80% confidence. Our
+              mentors are trained to be your biggest supporters.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Accessibility</h3>
+            <p>
+              Just like PW revolutionized tech education, we are making premium,
+              executive-level coaching available to everyone, everywhere.
+            </p>
+          </div>
+          <div class="value-item">
+            <h3>Personalized Feedback</h3>
+            <p>
+              You can't improve what you don't measure. We provide 1-on-1,
+              actionable feedback in a safe and supportive environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2025 Speak Smart Academy. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
