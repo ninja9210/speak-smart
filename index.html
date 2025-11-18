@@ -89,18 +89,15 @@
 
       /* ========== 1. Navigation Bar ========== */
       .navbar {
-        background: #fff;
-        padding: 1.2rem 0;
-        border-bottom: 1px solid #e2e8f0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .navbar .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 15px 20px;
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid #e2e8f0;
       }
 
       .navbar .logo {
@@ -108,30 +105,66 @@
         font-weight: 800;
         color: #1e3a8a;
         text-decoration: none;
+        cursor: pointer;
       }
 
       .nav-links {
-        list-style: none;
         display: flex;
-      }
-
-      .nav-links li {
-        margin-left: 2rem;
+        gap: 30px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
       }
 
       .nav-links li a {
         text-decoration: none;
+        font-size: 16px;
         color: #475569;
         font-weight: 600;
-        font-size: 1rem;
+        transition: color 0.2s ease;
       }
 
       .nav-links li a:hover {
         color: #2563eb;
       }
 
-      .nav-buttons .btn-secondary {
-        margin-right: 0.5rem;
+      /* Hamburger Hidden on Desktop */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: black;
+        transition: 0.3s ease;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 55px;
+          right: -100%;
+          background: white;
+          flex-direction: column;
+          width: 200px;
+          padding: 20px;
+          gap: 20px;
+          transition: 0.4s ease;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .hamburger {
+          display: flex;
+        }
       }
 
       /* ========== 2. Hero Section ========== */
@@ -307,8 +340,28 @@
         color: #e0e7ff;
       }
 
+      /* Hamburger Hidden on Desktop */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: black;
+      }
+
       /* ========== Responsive (Mobile) Design ========== */
       @media (max-width: 768px) {
+        .hamburger{
+          display: flex;
+          position: absolute;
+          right: 20px;
+          top: 30px;
+        }
         h1 {
           font-size: 2.5rem;
         }
@@ -322,10 +375,20 @@
         }
 
         .nav-links {
-          flex-direction: column;
-          width: 100%;
-          margin-top: 1rem;
-        }
+    position: absolute;
+    top: 65px;
+    right: -250px;
+    flex-direction: column;
+    background: #fff;
+    width: 200px;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
 
         .nav-links li {
           margin: 0.5rem 0;
@@ -334,7 +397,7 @@
         .nav-buttons {
           width: 100%;
           margin-top: 1rem;
-          display: flex;
+          display: none;
           flex-direction: column;
         }
         .nav-buttons .btn {
@@ -349,24 +412,27 @@
         .testimonial-grid {
           grid-template-columns: 1fr;
         }
+
+        .active{
+          display: flex;
+        }
       }
     </style>
   </head>
   <body>
     <nav class="navbar">
-      <div class="container">
-        <a href="index.html" class="logo">Speak Smart</a>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="mentors.html">Mentors</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-buttons">
-          <a href="#" class="btn btn-secondary">Login</a>
-          <a href="#" class="btn btn-primary">Sign Up</a>
-        </div>
+      <div class="logo">Speak Smart</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="mentors.html">Mentors</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </nav>
 
@@ -415,44 +481,44 @@
     </section>
 
     <section class="courses">
-<div class="container">
-<h2>Explore Our Courses</h2>
-<div class="course-grid">
+      <div class="container">
+        <h2>Explore Our Courses</h2>
+        <div class="course-grid">
+          <div class="course-card">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
+            />
+            <div class="course-card-content">
+              <h3>Communication Confidence</h3>
+              <p>Overcome stage fear and hesitation.</p>
+              <div class="price">₹1,999</div>
+            </div>
+          </div>
 
+          <div class="course-card">
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop"
+            />
+            <div class="course-card-content">
+              <h3>Pro Interview & GD Cracker</h3>
+              <p>Crack HR rounds with confidence.</p>
+              <div class="price">₹3,499</div>
+            </div>
+          </div>
 
-<div class="course-card">
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" />
-<div class="course-card-content">
-<h3>Communication Confidence</h3>
-<p>Overcome stage fear and hesitation.</p>
-<div class="price">₹1,999</div>
-</div>
-</div>
-
-
-<div class="course-card">
-<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" />
-<div class="course-card-content">
-<h3>Pro Interview & GD Cracker</h3>
-<p>Crack HR rounds with confidence.</p>
-<div class="price">₹3,499</div>
-</div>
-</div>
-
-
-<div class="course-card">
-<img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800&auto=format&fit=crop" />
-<div class="course-card-content">
-<h3>Corporate Leader's Toolkit</h3>
-<p>Learn team management & leadership.</p>
-<div class="price">₹4,999</div>
-</div>
-</div>
-
-
-</div>
-</div>
-</section>
+          <div class="course-card">
+            <img
+              src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800&auto=format&fit=crop"
+            />
+            <div class="course-card-content">
+              <h3>Corporate Leader's Toolkit</h3>
+              <p>Learn team management & leadership.</p>
+              <div class="price">₹4,999</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="testimonials">
       <div class="container">
@@ -483,5 +549,22 @@
         <p>© 2025 Speak Smart Academy. All Rights Reserved.</p>
       </div>
     </footer>
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when a link is clicked
+      const navItems = navLinks.querySelectorAll('a');
+      navItems.forEach(item => {
+        item.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+    </script>
+
   </body>
 </html>
