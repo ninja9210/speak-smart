@@ -113,15 +113,14 @@
       @media (max-width: 768px) {
         .nav-links {
           position: absolute;
-          top: 55px;
-          right: -100%;
-          background: white;
+          top: 65px;
+          right: -250px;
           flex-direction: column;
+          background: #fff;
           width: 200px;
           padding: 20px;
           gap: 20px;
-          transition: 0.4s ease;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .nav-links.active {
@@ -229,12 +228,6 @@
           align-items: flex-start;
         }
 
-        .nav-links {
-          flex-direction: column;
-          width: 100%;
-          margin-top: 1rem;
-        }
-
         .nav-links li {
           margin: 0.5rem 0;
         }
@@ -334,18 +327,18 @@
     </footer>
 
     <script>
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
 
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
       });
 
       // Close menu when a link is clicked
-      const navItems = navLinks.querySelectorAll('a');
-      navItems.forEach(item => {
-        item.addEventListener('click', () => {
-          navLinks.classList.remove('active');
+      const navItems = navLinks.querySelectorAll("a");
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("active");
         });
       });
     </script>
